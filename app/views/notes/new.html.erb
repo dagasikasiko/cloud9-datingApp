@@ -1,0 +1,9 @@
+<h1>新規投稿</h1>
+
+<%= form_tag notes_path do %>
+  タイトル<br>
+  <input type="text" name="title"><br>
+  内容<br>
+  <textarea name="content"></textarea><br>
+  <input type="submit" value=" 投稿する ">
+<% end %>
