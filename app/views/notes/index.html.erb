@@ -1,13 +1,13 @@
 <h1>投稿の一覧</h1>
 <table class="table table-striped table-hover ">
-<tr>
   <% @notes.each do |note| %>
+  <tr>
     <td>
       <p>タイトル</p>
     </td>
     <td>
         <%= link_to note.title, "/notes/#{note.id}"  %>
     </td>
+  </tr>
   <% end %>
-</tr>
 </table>
