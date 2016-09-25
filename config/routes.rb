@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :users
   resources :notes
 =begin
   get '/notes/new' => 'notes#new'
