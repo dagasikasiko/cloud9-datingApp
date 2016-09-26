@@ -12,13 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
+    名前
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :email %>
+    email
     <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    プロフィール画像
+    <%= f.file_field :image%>
   </div>
 
   <div class="actions">

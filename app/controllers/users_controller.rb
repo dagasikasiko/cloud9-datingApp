@@ -19,6 +19,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    file = params[:user][:image]
+
+    if !file.nil?
+      file_name = file.original_filename
+      File.open("public/user_images/#{file_name}",'wb'){|f| f.write(file.read)}
+      @user.image = file_name
+    end
 
     if @user.save
       redirect_to @user, notice: 'ユーザーが保存されました'
