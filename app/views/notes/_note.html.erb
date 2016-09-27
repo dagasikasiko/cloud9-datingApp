@@ -1,11 +1,14 @@
 <tr>
- <td>
-   <%= note.user.name %>
+  <td>
+    <%= image_for(note.user) %>
   </td>
   <td>
-    <p>タイトル</p>
-  </td>
-  <td>
-      <%= link_to note.title, "/notes/#{note.id}"  %>
-  </td>
+    <%= note.user.name %>
+   </td>
+   <td>
+     <p>タイトル</p>
+   </td>
+   <td>
+     <%= link_to note.title, "/notes/#{note.id}"  %>
+   </td>
 </tr>

@@ -20,12 +20,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     file = params[:user][:image]
-
-    if !file.nil?
-      file_name = file.original_filename
-      File.open("public/user_images/#{file_name}",'wb'){|f| f.write(file.read)}
-      @user.image = file_name
-    end
+    @user.set_image(file)
 
     if @user.save
       redirect_to @user, notice: 'ユーザーが保存されました'
@@ -35,6 +30,9 @@ class UsersController < ApplicationController
   end
 
   def update
+    file = params[:user][:image]
+    @user.set_image(file)
+    
     if @user.update(user_params)
       redirect_to @user, notice: 'ユーザー情報が更新されました'
     else

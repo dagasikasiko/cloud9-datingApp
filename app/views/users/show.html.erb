@@ -2,6 +2,13 @@
 
 <aside class="sidebar">
   <section>
+    <span class="label">プロフィール画像</span>
+    <h3 class="user-info">
+      <%= image_for(@user) %>
+    </h3>
+  </section>
+
+  <section>
     <span class="label">ユーザー</span>
     <h3 class="user-info"><%= @user.name %></h3>
   </section>
