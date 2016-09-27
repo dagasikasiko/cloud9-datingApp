@@ -52,6 +52,9 @@
             <li><%= link_to "New", "/notes/new"  %></li>
             <li><%= link_to "Index", "/notes"  %></li>
             <li><%= link_to "User", users_path %></li>
+            <% if user_signed_in? %>
+            <li>log in as <%= @user.name %></li>
+            <% end %>
           </ul>
         </div>
       </div>
