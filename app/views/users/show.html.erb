@@ -19,7 +19,9 @@
   </section>
 
   <section>
+    <% if current_user?(@user) %>
     <small><%= link_to 'プロフィールを編集', edit_user_path(@user) %></small>
+    <% end %>
   </section>
 
 </aside>
