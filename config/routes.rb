@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 
   root 'home#top'
   get '/about' => 'home#about'
+
+  get '/users/sign_out' => 'devise/sessions#destroy'
 end
