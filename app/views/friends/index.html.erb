@@ -1,0 +1,71 @@
+<h1>友達一覧</h1>
+<form action="#" method="post">
+  <input type="search" name="search" placeholder="キーワードを入力">
+  <input type="submit" name="submit" value="検索">
+</form>
+
+<!--検索ワード：%= @word %><br/>-->
+<table>
+  <tr><th>ID</th><th>NAME</th><th>Email</th><th>image</th></tr>
+<% @datas.each do |data| %>
+  <tr>
+    <td><a href="/users/<%= data.id %>"><%= data.id %></a></td>
+    <td><%= data.name %></td>
+    <td><%= data.email %></td>
+    <td><%= data.image %></td>
+  </tr>
+  <% end %>
+</table>
+
+
+
+<% count = 0 %>
+        <% @twitter.each do |n| %>
+        <div class="col-xs-6 col-md-3">
+            <div class="thumbnail">
+                <%
+                    random = Random.new
+                    # nanikana = random.rand(1..10)
+                    nanikana = 1
+                    nanikana.to_i
+                    if nanikana == 1 then
+                      @img = 'hiroaki.png'
+                    elsif nanikana == 2 then
+                      @img = 'mensetu.jpg'
+                    elsif nanikana == 3 then
+                      @img = 'mensetu2.jpg'
+                    elsif nanikana == 4 then
+                      @img ='mensetu3.jpg'
+                    elsif nanikana == 5 then
+                      @img ='mensetu4.jpg'
+                    elsif nanikana == 6 then
+                      @img ='mensetu5.jpg'
+                    elsif nanikana == 7 then
+                      @img ='mensetu6.jpg'
+                    elsif nanikana == 8 then
+                      @img ='mensetu7.jpg'
+                    elsif nanikana == 9 then
+                      @img ='mensetu1.jpg'
+                    else
+                      @img = 'box01.jpg'
+                    end
+                %>
+                <%= image_tag @img, :width => "100",:height => "100" %>
+                <div class="caption">
+                    <div>
+                    <%= image_tag 'hcslogo.png', :width => "50",:height => "50" %>
+                    <strong><%= @twittertext[count] %></strong>
+                    <div></div>
+                    <i>
+                      <b>@hcspublic</b>
+                    </i>
+                    </div>
+                    <p><%= n %></p>
+                    <p>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <% count = count + 1 %>
+        <%end %>
+      

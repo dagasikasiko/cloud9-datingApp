@@ -1,33 +1,256 @@
-<p id="notice" class="alert alert-success"><%= notice %></p>
 
-<aside class="sidebar">
-  <section>
-    <span class="label">プロフィール画像</span>
-    <h3 class="user-info">
-      <%= image_for(@user) %>
-    </h3>
-  </section>
 
-  <section>
-    <span class="label">ユーザー</span>
-    <h3 class="user-info"><%= @user.name %></h3>
-  </section>
 
-  <section>
-    <span class="label">メールアドレス</span>
-    <h3 class="user-info"><%= @user.email %></h3>
-  </section>
+<%= form_for(@user) do |f| %>
+  
 
-  <section>
-    <% if current_user?(@user) %>
-    <small><%= link_to 'プロフィールを編集', edit_user_path(@user) %></small>
-    <% end %>
-  </section>
+<% if @user.id == current_user.id %>
+<!--自分だった場合-->
+<center><h1>マイページ</h1>
+<div class ="main_left">
+    <aside id="sidebar">
+      <section>
+        <span class="label">プロフィール画像</span>
+        <h3 class="user-info">
+           
+           
+           <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "つerror") %> をはっけん！</h2>
+      
 
-</aside>
-
-<ul class="notes">
-  <% @notes.each do |note| %>
-    <%= render note %>
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
   <% end %>
-</ul>
+           
+           
+           
+          <!--%= link_to image_for(@user),userimage_user_path(@user) %>-->
+          <!--%=  image_for(@user) %>-->
+          <% if @user.image? %>
+          <!--動的なレイアウトに変更したい場合以下-->
+          <!--<div class="thumbnail">-->
+            <div class = "center-profile">
+              <!--%= image_tag @user.image.url,  class: "profile_img" %>-->
+              <!--%= @user.image.url %>-->
+              <%if @user.favorite_type == 0%>
+      			<%=image_tag @user.image.url, class: "profile_img"%>
+      		  <%elsif @user.favorite_type == 1%>
+      			<%=image_tag @user.image.url, class: "profile_img2"%>
+      		  <%elsif @user.favorite_type == 2%>
+      			<%=image_tag @user.image.url, class: "profile_img3"%>
+      		  <%elsif @user.favorite_type == 3%>
+     			<%=image_tag @user.image.url, class: "profile_img4"%>
+     		  <%elsif @user.favorite_type == 4%>
+      			<%=image_tag @user.image.url, class: "profile_img5"%>
+      		  <%end%>
+            </div>
+          <% else %>
+              <div class = "center-profile">
+              <!--%= image_tag "icon.png", class: "profile_img" %>-->
+              <%= image_for(@user)%>
+            </div>
+          <% end %>
+          
+          
+           <div class="field">
+            
+            <center><% f.label :image %><br>
+            <%= f.file_field :image %>
+            <!--%= f.hidden_field :image_cache %>-->
+          </div>
+          
+        </h3>
+      </section>
+    
+      <section>
+         <div class="field">
+    
+ 
+        <span class="label">ユーザー</span>
+        <h2><%= f.text_field :name ,:maxlength=>"20"%></h2>
+        </div>
+      </section>
+      
+      
+    
+      <section>
+        <span class="label">メールアドレス</span>
+        <div class="field">
+        <h2><%= f.email_field :email ,:maxlength=>"40"%></h2>
+          </div>
+      </section>
+      
+       <div class="actions">
+     <center><%= f.submit %>
+  </div>
+  
+
+  <section>
+        <span class="label">ポイント</span>
+        <h2><%= current_user.point %>pt.</h2>
+  </section>
+  
+  <% if @user.sex == 1 %>
+       <section>
+         <h3>♂おとこ♂</h3>
+      </section>
+      <% elsif @user.sex == 2 %>
+      <section>
+         <h3>♀おんな♀</h3>
+      </section>
+      <% end %>
+  
+  <section>
+        <h5 class="user-info center-profile"><%= link_to "好みのタイプ変更", "/type/choice"  %></h5>
+    </section>
+    
+    <section>
+        <h5 class="user-info center-profile"><%= link_to "マイスタンプ", mystamp_user_path(@user)  %></h5>
+    </section>
+    
+     <font size="1" color="#000000"><%= link_to "退会", "/leave/goodbye"  %></font>
+  
+
+  
+  <% else %> 
+  <!-- こっから自分以外だった場合-->
+  <center><h1><%= @user.name%>のページ</h1>
+<div class ="main_left">
+    <aside id="sidebar">
+      <section>
+        <span class="label">プロフィール画像</span>
+        <h3 class="user-info">
+          <% if @user.image? %>
+          <!--動的なレイアウトに変更したい場合以下-->
+            <div class = "center-profile">
+              <%if @user.favorite_type == 0%>
+      			<%=image_tag @user.image.url, class: "profile_img"%>
+      		  <%elsif @user.favorite_type == 1%>
+      			<%=image_tag @user.image.url, class: "profile_img2"%>
+      		  <%elsif @user.favorite_type == 2%>
+      			<%=image_tag @user.image.url, class: "profile_img3"%>
+      		  <%elsif @user.favorite_type == 3%>
+     			<%=image_tag @user.image.url, class: "profile_img4"%>
+     		  <%elsif @user.favorite_type == 4%>
+      			<%=image_tag @user.image.url, class: "profile_img5"%>
+      		  <%end%>
+            </div>
+          <% else %>
+              <div class = "center-profile">
+              <%= image_for(@user)%>
+            </div>
+          <% end %>
+        </h3>
+      </section>
+    
+
+    
+      <section>
+
+        <h3 class="user-info center-profile"><%= @user.name %>
+           <%if @tomodatikana == 0 %>  
+        <% if @user.sex == 1 %>
+
+			♂</h3>
+
+     	<% elsif @user.sex == 2 %>♀</h3>
+
+      	<% end %></h3>
+    	</section>
+    
+   
+    
+      <section>
+
+        <h4 class="user-info center-profile"><%= @user.email %></h4>
+      </section>
+      
+      
+      <% end %>
+      
+    </aside>
+</div>
+
+<% end %>      
+  
+  
+<% end %>
+
+
+
+      
+      
+      
+      
+    </aside>
+</div>
+
+
+
+
+
+<!--% if @notes.nil?%>-->
+<!--    <h3>まだ君の%= link_to "ポエ", "/notes/new"  %>がないよ！-->
+<!--    <h2>まずは%= link_to "ポエ", "/notes/new"  %>って見よう！-->
+<!--    % end %>-->
+
+<div class ="main-context">
+    <h1><%=@user.name%>の投稿</h1>
+    
+        <table class="table table-striped table-hover">
+          
+          <% if @poe == 0 %>
+              <h2>まだ<%= link_to "ポエ", "/notes/new"  %>がないよ！
+              <!--<h2>まずは%= link_to "ポエ", "/notes/new"  %>って見よう！-->
+
+            <% else %>
+
+          
+          <% @notes.each do |note| %>
+          
+            <%= render note %>
+            
+            
+          <% end %>
+          
+          <% end %>
+        </table>
+</div>
+  
+
+<!--<div class ="main-context">-->
+<!--    <h1>みんなの投稿</h1>-->
+<!--        <table class="table table-striped table-hover">-->
+<!--          % @notes.each do |note| %>-->
+<!--            %= render note %>-->
+<!--          % end %>-->
+<!--        </table>-->
+
+<!--%= render 'form', user: @user %>-->
+
+
+<!--%= link_to 'マイページへ', @user %>-->
+
+
+  
+  <!--<div class="field">-->
+    <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
+  <!--  % if @user.persisted? && @user.image? %>-->
+  <!--    <label>-->
+  <!--      %= f.check_box :remove_image %>-->
+  <!--      画像を削除-->
+  <!--    </label>-->
+  <!--  % end %>-->
+  <!--</div>-->
+  <!-- 追加箇所 終了 -->
+  
+  <!-- 管理flg -->
+  <!--<div class="field">-->
+  <!--  %= f.hidden_field :admin_flg ,0 %>-->
+  <!--</div>-->
+  

@@ -1,34 +1,63 @@
-<h2>Sign up</h2>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+    <title>Login</title>
+    
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700">
+
+
+
+<Div Align="center"><h1>アカウント作成</h1></Div>
+
+
+  <div id="login">
+    
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :name %>
+    <!--%= f.text_field :name %>-->
+    <%= f.text_field :name, placeholder: "例) HCS太郎 ", :maxlength=>"20" %> 
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.label :email %>
+    <%= f.email_field :email, placeholder: "例) hcs@○○○.com ",autofocus: true,:maxlength=>"40" %>
   </div>
 
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <em>(最低でも<%= @minimum_password_length %>文字入れてね)</em>
+    <% end %>
+    <%= f.password_field :password, autocomplete: "off" ,:maxlength=>"20"%>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "off" ,:maxlength=>"20"%>
   </div>
+  
+  
+  <!--</div>-->
+  
+  <!--<div class="field">-->
+  <!--  %= f.label :image %><br>-->
+  <!--  %= f.file_field :image %>-->
+    <!--%= f.hidden_field :image_cache %>-->
+  <!--</div>-->
+  
+  
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+    <%= f.submit "アカウント作成" %>
+
 <% end %>
 
-<%= render "users/shared/links" %>
+
+ <!--%= render "users/shared/links" %>-->
+<Div Align="right"><%= link_to "ログイン", new_user_session_path  %></div>
+</div>
+  </div>

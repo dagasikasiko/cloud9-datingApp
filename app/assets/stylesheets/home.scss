@@ -1,3 +1,28 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#login-name{
+    a:link { color: #FFFFFF; }
+a:visited { color: #FFFFFF; }
+a:hover { color: #FFFFFF; }
+a:active { color: #FFFFFF; }
+}
+
+.main_left{
+    margin: 1px;
+    width: 29%;
+    float: left;
+    background:#3f3f3f;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+.center-profile{
+    text-align: center;
+}
+.main-context{
+    background:#3f3f3f;
+    width: 70%;
+    float: right;
+    border: 1px solid gray;
+    border-radius: 5px;
+}

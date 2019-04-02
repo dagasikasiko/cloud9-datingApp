@@ -9,3 +9,6 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+# カスタム　以下ガチャ画面を表示させるために使用した
+# Rails.application.config.assets.precompile += %w( gacha.js )
+Rails.application.config.assets.precompile += %w( *.js )

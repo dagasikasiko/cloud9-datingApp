@@ -1,0 +1,1 @@
+json.array! @admin_stampimages, partial: 'admin_stampimages/admin_stampimage', as: :admin_stampimage

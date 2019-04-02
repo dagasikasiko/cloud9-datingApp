@@ -1,0 +1,66 @@
+<%= stylesheet_link_tag "/assets/gacha/gacha", media: "all" %>
+
+<%= stylesheet_link_tag "/assets/gacha/shake", :media => "all" %>
+
+<center><h1>生贄を5人選んでね＾＾</h1>
+
+<div class="foo">
+  <% if @user.size + $checkuser.size - 5 >= 0 then %>
+    <% count = 0 %>
+    <% @user.each do |user| %>
+        <span class="letter shake" data-letter=""><%= link_to image_for(user), gacha_path(checkid: user.id) %></span>
+        <em><%= user.name %></em>
+        <% count = count + 1 %>
+      <% if count == 5 then %>
+        <br>
+        <br>
+        <% count = 0
+      end
+    end %>
+  <% else %>
+    <h1>友達が足りません。</h1>
+    <a href="/gacha/friendgacha" class="button alt special">フレンドガチャする？(200pt)</a>
+  <% end %>
+
+  <% if $checkuser.size >= 1 then %>
+  <h3>--------------------選ばれし者--------------------</h3>
+  <% end %>
+  <% $checkuser.each do |user| %>
+      <span class="letter shake" data-letter=""><%= link_to image_for(user), gacha_path(checkid: user.id) %></span>
+      <em><%= user.name %></em>
+  <% end %>
+  
+  <% if $checkuser.size == 5 then %>
+  <div>
+    <a href="/gacha/premiumresult" class="button alt special">プレミアムガチャ！</a>
+    <!--<a><span>%= link_to "ガチャる", '/gacha/premiumresult' %></span></a>-->
+  </div>
+  <% elsif $checkuser.size < 5 && $checkuser.size > 0 then %>
+    <p>もっと生贄をよこせぇ
+  <% elsif $checkuser.size > 5 && $checkuser.size > 0 %>
+    <p>ちょっと多いっすね
+  <% end %>
+
+</div>
+
+
+<!--<div class="foo">-->
+<!--  <span class="letter shake" data-letter="H">H</span>-->
+<!--  <span class="letter shake-hard" data-letter="C">C</span>-->
+<!--  <span class="letter shake-slow" data-letter="S">S</span>-->
+<!--  <br>-->
+<!--  <br>-->
+<!--  <span class="letter shake-little" data-letter="北">北</span>-->
+<!--  <span class="letter shake-horizontal" data-letter="海">海</span>-->
+<!--  <span class="letter shake-vertical" data-letter="道">道</span>-->
+<!--  <span class="letter shake-rotate" data-letter="情">情</span>-->
+<!--  <span class="letter shake-opacity" data-letter="報">報</span>-->
+<!--  <br>-->
+<!--  <br>-->
+<!--  <span class="letter shake-crazy" data-letter="専">専</span>-->
+<!--  <span class="letter shake-chunk" data-letter="門">門</span>-->
+<!--  <span class="letter shake-horizontal" data-letter="学">学</span>-->
+<!--  <span class="letter shake" data-letter="校">校</span>-->
+<!--</div>-->
+
+<!--<div class="shake-horizontal"><img src="/uploads/stampimage/image/30/kawaii.gif" width="500" height="500"></div>-->

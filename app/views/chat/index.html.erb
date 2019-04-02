@@ -1,0 +1,87 @@
+   <head>
+   
+    <%= stylesheet_link_tag "/assets/jquery-dialog/jquery-ui.min", :media => "all" %>
+    <%= stylesheet_link_tag "/assets/jquery-dialog/jquery-ui.structure.min", :media => "all" %>
+    <%= stylesheet_link_tag "/assets/jquery-dialog/jquery-ui.theme", :media => "all" %>
+    <%= javascript_include_tag "/assets/jquery-dialog/jquery-ui.min.js" %>
+    
+    </head>
+    
+    <% if $js.even? === true %>
+    	<% $js += 1 %>
+			<meta http-equiv="refresh" content="0">
+			
+		<% end %>
+    
+<% if user_signed_in? %>
+
+    <div class = "kaiwa">
+        <center><h1><%= @user_id_to.name %>さんとのメッセージ</h1></center>
+        
+        <ul id="messages" data-context="<%= @user_id_to.id %>">
+          <%= render @messages %>
+        </ul>
+        
+        <form>
+          <input type="hidden" value= "<%= @user_id_to %>" data-behavior="room_speaker">
+          <input type="text" maxlength="200" data-behavior="room_speaker">
+        </form>
+          <button id="jquery-ui-dialog-opener">
+          <img src="<%= asset_path "favicon.ico" %>" width="20" height="20"/>
+          </button>
+          
+          <div id="jquery-ui-dialog" title="スタンプ">
+            <% if @stamps !="nanimonai" %>  
+              <% @stamps.each do |stamp| %>
+                <% stampimage = Stampimage.find_by(id: stamp.stamp_id) %>
+                <A href="javascript:SetMsg('<%= stampimage.image.url.to_s%>')"><%= image_tag stampimage.image.url, class: 'profile_img'  %></a>
+                
+              <% end %>
+              
+            <% else %>
+                <h1>なにももってないよぉ！</h1>
+                <a href="/gacha/stampgacha" class="button alt special">スタンプガチャする？(100pt)</a>
+              
+            <% end %>
+            
+            <form name="form1">
+                <input type="text" maxlength="200" data-behavior="room_speaker" name="text1">
+                </form>
+            
+            
+          </div>
+    </div>
+    <script type="text/javascript">
+    jQuery( function() {
+      jQuery( '#jquery-ui-dialog' ) . dialog( {
+          autoOpen: false,
+          height: 400,
+          width: 550,
+      } );
+      jQuery( '#jquery-ui-dialog-opener' ) . click( function() {
+          jQuery( '#jquery-ui-dialog' ) . dialog( 'open' );
+          return false;
+      } );
+    } );
+    
+    
+  //   function imgClick() {
+      
+      
+  //     var form = document.createElement('form');
+
+
+      
+  // alert("クリックされました");
+  
+  // }
+  function SetMsg(strNum) {
+  var strMsg;
+  strMsg = strNum;
+  document.form1.text1.value=strMsg;
+}
+
+    </script>
+    
+<% else %>
+<% end %>

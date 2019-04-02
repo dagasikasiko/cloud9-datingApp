@@ -1,0 +1,124 @@
+@charset "UTF-8";
+/*******************************
+* 左からの吹き出し
+********************************/
+/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/messages.scss */
+.left_balloon {
+  position: relative;
+  background: #fff;
+  border: 1px solid #777;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  margin-right: 20%;
+  clear: both;
+  max-width: 500px;
+  float: left;
+}
+
+/* line 21, /home/ubuntu/workspace/app/assets/stylesheets/messages.scss */
+.left_balloon:after,
+.left_balloon:before {
+  right: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+/* line 32, /home/ubuntu/workspace/app/assets/stylesheets/messages.scss */
+.left_balloon:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-right-color: #fff;
+  border-width: 7px;
+  margin-top: -7px;
+}
+
+/* line 38, /home/ubuntu/workspace/app/assets/stylesheets/messages.scss */
+.left_balloon:before {
+  border-color: transparent;
+  border-right-color: #000;
+  border-width: 8px;
+  margin-top: -8px;
+}
+
+/*******************************
+* 右からの吹き出し
+********************************/
+/* line 48, /home/ubuntu/workspace/app/assets/stylesheets/messages.scss */
+.right_balloon {
+  position: relative;
+  background: #85e249;
+  border: 1px solid #777;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  margin-left: 20%;
+  clear: both;
+  max-width: 500px;
+  float: right;
+}
+
+/* line 60, /home/ubuntu/workspace/app/assets/stylesheets/messages.scss */
+.right_balloon:after,
+.right_balloon:before {
+  left: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+/* line 71, /home/ubuntu/workspace/app/assets/stylesheets/messages.scss */
+.right_balloon:after {
+  border-color: rgba(133, 226, 73, 0);
+  border-left-color: #85e249;
+  border-width: 7px;
+  margin-top: -7px;
+}
+
+/* line 77, /home/ubuntu/workspace/app/assets/stylesheets/messages.scss */
+.right_balloon:before {
+  border-color: rgba(119, 119, 119, 0);
+  border-left-color: #777;
+  border-width: 8px;
+  margin-top: -8px;
+}
+
+/*******************************
+* 割り込みを解除
+********************************/
+/* line 87, /home/ubuntu/workspace/app/assets/stylesheets/messages.scss */
+.clear_balloon {
+  clear: both;
+}
+
+/* line 90, /home/ubuntu/workspace/app/assets/stylesheets/messages.scss */
+#messages {
+  list-style: none;
+}
+
+/* line 93, /home/ubuntu/workspace/app/assets/stylesheets/messages.scss */
+.message-content {
+  display: table-cell;
+  width: 10000px;
+}
+
+/* line 97, /home/ubuntu/workspace/app/assets/stylesheets/messages.scss */
+.message-img {
+  display: table-cell;
+  vertical-align: top;
+  padding-right: 10px;
+}
+
+/* line 102, /home/ubuntu/workspace/app/assets/stylesheets/messages.scss */
+.message-heading {
+  margin-top: 0;
+  margin-bottom: 1px;
+}

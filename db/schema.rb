@@ -10,7 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160927011058) do
+ActiveRecord::Schema.define(version: 20170123150329) do
+
+  create_table "frids", id: false, force: :cascade do |t|
+    t.integer  "userid"
+    t.integer  "friendid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["userid", "friendid"], name: "index_frids_on_userid_and_friendid", unique: true
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string   "filename"
+    t.binary   "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "isseys", force: :cascade do |t|
+    t.string   "userid"
+    t.string   "pass"
+    t.string   "name"
+    t.string   "grade"
+    t.integer  "age"
+    t.string   "profile"
+    t.integer  "point"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "userid"
+    t.integer  "user_id"
+  end
 
   create_table "notes", force: :cascade do |t|
     t.string   "title"
@@ -20,23 +55,55 @@ ActiveRecord::Schema.define(version: 20160927011058) do
     t.integer  "user_id"
   end
 
+  create_table "stampimages", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "image"
+  end
+
+  create_table "stamps", force: :cascade do |t|
+    t.string   "stampname"
+    t.binary   "stamp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "userimages", force: :cascade do |t|
+    t.string   "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "image"
+  end
+
+  create_table "userpoints", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "point",      default: 300
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["user_id", "created_at"], name: "index_userpoints_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_userpoints_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "image"
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.string   "image",              default: ""
+    t.string   "encrypted_password", default: "",    null: false
+    t.boolean  "admin_flg",          default: false
+    t.integer  "sex",                default: 0
+    t.integer  "point",              default: 300
+    t.integer  "favorite_type",      default: 0
+  end
+
+  create_table "userstamps", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "stamp_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

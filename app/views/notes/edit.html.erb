@@ -1,2 +1,32 @@
-<h1>投稿を編集する</h1>
-<%= render 'form' %>
+
+<!DOCTYPE HTML>
+<!--
+	Ion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>ポエりなおす</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+
+		<%= stylesheet_link_tag "/assets/top/style-xlarge", media: "all" %>
+	</head>
+	<body id="top">
+
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<h2>ポエりなおす</h2>
+					<br>
+       <%= render 'form' %>
+<%= link_to "削除", note_path(@note.id), method: "delete", class: "primary-btn destroy-btn ", "data-confirm" => "本当に削除しますか？" %>
+					
+				</div>
+			</section>
+			
+			
+

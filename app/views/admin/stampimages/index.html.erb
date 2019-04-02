@@ -1,0 +1,30 @@
+<h1>Stampimages</h1>
+
+<%= stylesheet_link_tag "/assets/admin/stampimages", media: "all" %>
+<%= link_to 'スタンプ新規作成', new_admin_stampimage_path %>
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>スタンプ名</th>
+      <th>レア度</th>
+      <th>スタンプ</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stampimages.each do |stampimage| %>
+      <tr>
+        <td><%= stampimage.name %></td>
+        <td><%= stampimage.rate %></td>
+        <td><%= image_tag stampimage.image.url, class: 'middle-img' %></td>
+        <td><%= link_to '編集', "/admin/stampimages/#{stampimage.id}/edit" %></td>
+        <td><%= link_to '削除', [stampimage], method: :delete, data: { confirm: '削除します。よろしいですか？' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'スタンプ新規作成', new_admin_stampimage_path %>

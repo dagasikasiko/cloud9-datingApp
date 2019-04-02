@@ -30,6 +30,10 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'jquery-turbolinks'
+
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
@@ -47,8 +51,29 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# カスタム
+# websocket faya-websocket 動的なチャットを行うため
+gem 'websocket-rails'
+gem 'faye-websocket', '0.10.0'
+
+gem "twitter"
 gem "therubyracer"
-gem "less-rails"
+gem 'less-rails'
 gem "twitter-bootstrap-rails"
 
 gem "devise"
+
+# 画像関連
+gem "carrierwave"
+
+
+# coffeeスクリプトとコントローラーの値渡し
+gem 'gon'
+
+gem "composite_primary_keys"
+
+
+#c言語
+gem 'RubyInline', '~> 3.12', '>= 3.12.4'
+gem 'ZenTest', '~> 4.11', '>= 4.11.1'
+gem 'word_scoop'

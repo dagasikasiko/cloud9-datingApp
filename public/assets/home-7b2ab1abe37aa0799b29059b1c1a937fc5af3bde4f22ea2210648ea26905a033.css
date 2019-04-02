@@ -1,0 +1,40 @@
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/home.scss */
+#login-name a:link {
+  color: #FFFFFF;
+}
+/* line 6, /home/ubuntu/workspace/app/assets/stylesheets/home.scss */
+#login-name a:visited {
+  color: #FFFFFF;
+}
+/* line 7, /home/ubuntu/workspace/app/assets/stylesheets/home.scss */
+#login-name a:hover {
+  color: #FFFFFF;
+}
+/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/home.scss */
+#login-name a:active {
+  color: #FFFFFF;
+}
+
+/* line 11, /home/ubuntu/workspace/app/assets/stylesheets/home.scss */
+.main_left {
+  margin: 1px;
+  width: 29%;
+  float: left;
+  background: #3f3f3f;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/home.scss */
+.center-profile {
+  text-align: center;
+}
+
+/* line 22, /home/ubuntu/workspace/app/assets/stylesheets/home.scss */
+.main-context {
+  background: #3f3f3f;
+  width: 70%;
+  float: right;
+  border: 1px solid gray;
+  border-radius: 5px;
+}

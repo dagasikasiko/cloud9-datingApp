@@ -1,0 +1,2 @@
+class Issey < ApplicationRecord
+end

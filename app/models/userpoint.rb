@@ -1,0 +1,2 @@
+class Userpoint < ApplicationRecord
+end

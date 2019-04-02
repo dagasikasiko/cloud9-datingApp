@@ -1,0 +1,97 @@
+
+<%= stylesheet_link_tag "/assets/gacha/anime", media: "all" %>
+<%= stylesheet_link_tag "/assets/gacha/shake", :media => "all" %>
+
+
+<center><h1>LoverGacha</h1>
+								<center><ui class="actions">
+									<% if @cnt != 6%>
+									<a href=<%= "/users/#{@lover.id}" %> class="button alt special">その子のプロフィールへ</a>
+									<% end %>
+									<a href="/gacha/lovergacha" class="button alt special">もっかいする？(500pt)</a>
+								</ui></center>
+
+								<!--<center><ui class="actions">-->
+								<!--	<a href="/gacha/lovergacha" class="button alt special">もっかいする？(500pt)</a>-->
+								<!--</ui></center>-->
+
+
+ <section id="two" class="wrapper style2">
+    
+    
+    <% if @cnt == 6%>
+       
+        	                
+				
+				<div class="container">
+					<div class="row">
+						<div class="6u">
+							<section class="special slideRight">
+							    <div id="object" class="bigEntrance shake-horizontal">
+				                    <h2>ざんねん！</h2>
+					                <h5>はずれです...</h5>
+					                <h5>少しだけポイントを返すよ</h5>
+                                </div>
+								<div id="object" class="expandUp">
+								<!--<a href=%= new_user_registration_path  %> class="image fit"><img src="assets/top/pic01.jpg" alt="" /></a>-->
+								
+                                    <%= image_tag "/assets/gacha/hazureman.png", class: 'result-stamp shake-slow' %>
+                                </div>
+                                <br>
+								
+								
+							</section>
+						</div>
+						
+					</div>
+				</div>
+			</section>
+        
+        
+    <% else %>
+
+
+                                    
+
+
+                  <section id="two" class="wrapper style2">
+				
+				<div class="container">
+					<div class="row">
+						<div class="6u">
+							<section class="special">
+							    <div id="object" class="bigEntrance shake-horizontal">
+
+                                </div>
+								<!--<div id="object" class="expandUp">-->
+								<!--<a href=%= new_user_registration_path  %> class="image fit"><img src="assets/top/pic01.jpg" alt="" /></a>-->
+								<h1><%= @message %></h1>
+								
+                                    <div id="object" class="bigEntrance shake-horizontal">
+                                          <%= link_to gacha_image_for(@loveruser), @loveruser %>
+                                    </div>
+                                    <div id="object" class="slideUp shake-crazy">
+                                          <h1><%= link_to @loveruser.name, @loveruser %></h1><h2>ちゃん</h2>
+                                          <h2>あなたのタイプの人みっけ！</h2>
+                                    </div>
+                                    <div id="object" class="fadeIn shake-horizontal">
+                                          <h1>メールアドレス:<%= link_to @loveruser.email, @loveruser %></h1>
+                                    </div>
+                                    
+                                </div>
+                                <br>
+								
+								
+							</section>
+						</div>
+						
+					</div>
+				</div>
+			</section>
+
+
+<ul class="user-list">
+  
+</ul>
+
+<%end%>

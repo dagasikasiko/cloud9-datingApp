@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>スタンプ名:</strong>
+  <%= @stampimage.name %>
+</p>
+
+<p>
+  <strong>レア度:</strong>
+  <%= @stampimage.rate %>
+</p>
+
+<!-- 追加箇所 開始 -->
+<p>
+  <strong>画像:</strong>
+  <% if @stampimage.image? %>
+    <div class="thumbnail">
+      <%= image_tag @stampimage.image.url, class: 'large-img' %>
+    </div>
+  <% end %>
+</p>
+<!-- 追加箇所 終了 -->
+
+
+<%= link_to '編集', edit_stampimage_path(@stampimage) %> |
+<%= link_to '戻る', stampimages_path %>

@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<center><h1>マイスタンプ</h1></center>
+
+
+
+
+
+
+<% if @userstamp == "nanimonai" %>
+    <em><h2>まだスタンプを何も持っていないよ！</h2></em>
+    
+<% else %>
+
+    <table>
+      <thead>
+        <tr>
+          <th><h3>スタンプ名</th>
+          <th><h3>レア度</th>
+          <th><h3>スタンプ</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @userstamp.each do |stamp| %>
+          <tr>
+            <% stampimage = Stampimage.find_by(id: stamp.stamp_id) %>
+              <% if stampimage != nil%>
+            <td><h2><%= stampimage.name %></td>
+            <!--<td><h1>%= stampimage.rate %></td>-->
+            <% reado = stampimage.rate %>
+									<% moji =""%>
+								    <% while reado > 0 %>
+								    	<% reado = reado -1 %>
+								    	<% moji = moji + "★"%>
+								    <% end %>
+								    
+								    <td><h1><%= moji %></h1></td>
+            
+            <td><%= image_tag stampimage.image.url, class: 'middle-img' %></td>
+            <% end %>
+            
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+<% end %>
+
+
+
+<a href="/gacha/stampgacha" class="button alt special">スタンプガチャする？(100pt)</a>
+

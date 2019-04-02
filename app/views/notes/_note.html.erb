@@ -1,14 +1,42 @@
+
+
 <tr>
   <td>
     <%= image_for(note.user) %>
+    
   </td>
   <td>
-    <%= note.user.name %>
+    <%= link_to note.user.name, "/users/#{note.user.id}" %>
+   </td>
+   <!--<td>-->
+     <!--%= link_to note.title, "/users/#{note.user.id}"  %>-->
+   <!--  %= note.title %>-->
+   <!--</td>-->
+   <td>
+     <!--%= link_to note.content, "/users/#{note.user.id}"  %>-->
+     <%= note.content%>
    </td>
    <td>
-     <p>タイトル</p>
+     <p><%= distance_of_time_in_words_to_now(note.created_at) %> ago</p>
+     <!--<p>%= note.created_at.strftime('%Y/%m/%d %H:%M') %></p>-->
    </td>
    <td>
-     <%= link_to note.title, "/notes/#{note.id}"  %>
+     <% if(note.user_id != current_user.id) %>
+        <% if Frids.find_by(userid: current_user.id,friendid: note.user_id) != nil %>
+        
+         <%= link_to "チャット", "/chat/?user_id_to=#{note.user_id}", class: "btn edit-btn"  %>
+         
+        <% else %>
+        
+            <%= link_to "ガチャ", "/gacha", class: "btn edit-btn"  %>って友達になる！
+         
+        <% end %>
+        
+    <% else %>
+          <%= link_to "編集", edit_note_path(note.id), class: "btn edit-btn" %>
+          
+         
+     <% end %>
    </td>
 </tr>
+

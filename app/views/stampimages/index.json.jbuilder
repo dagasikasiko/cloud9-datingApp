@@ -1,0 +1,1 @@
+json.array! @stampimages, partial: 'stampimages/stampimage', as: :stampimage

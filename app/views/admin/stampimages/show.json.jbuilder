@@ -1,0 +1,1 @@
+json.partial! "admin_stampimages/admin_stampimage", admin_stampimage: @admin_stampimage

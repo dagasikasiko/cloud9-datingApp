@@ -1,0 +1,76 @@
+<%= stylesheet_link_tag "/assets/gacha/gacha", media: "all" %>
+
+<%= stylesheet_link_tag "/assets/gacha/shake", :media => "all" %>
+
+
+<center><h1>質問に答えてね!<br>
+
+<h3>
+    
+<%= form_tag({ :controller => 'type', :action => 'result' }, { :method => :post}) do %>    
+    
+<div class="foo">
+
+    <div class="question style1">
+    <em>ペットを飼うなら？</em><br>
+    <input type="radio" name="s1" id="select1" value="1" checked="">
+    <label for="select1">犬でしょ</label>
+    <input type="radio" name="s1" id="select2" value="2">
+    <label for="select2">猫だよね</label>
+    <input type="radio" name="s1" id="select3" value="3">
+    <label for="select3">カメ</label>
+    <input type="radio" name="s1" id="select4" value="4">
+    <label for="select4">ハムスター</label>
+    <input type="radio" name="s1" id="select5" value="5">
+    <label for="select5">ん～わかんない</label>
+    </div>
+    
+    <div class="question style2">
+    <em>デートするなら？</em><br>
+    <input type="radio" name="s2" id="select6" value="1" checked="">
+    <label for="select6">海</label>
+    <input type="radio" name="s2" id="select7" value="2">
+    <label for="select7">キャンプ</label>
+    <input type="radio" name="s2" id="select8" value="3">
+    <label for="select8">街に行く</label>
+    <input type="radio" name="s2" id="select9" value="4">
+    <label for="select9">ゲーム</label>
+    <input type="radio" name="s2" id="select10" value="5">
+    <label for="select10">ん～わかんない</label>
+    </div>
+    
+    <div class="question style1">
+    <em>久々の休日！今日は何しよう？</em><br>
+    <input type="radio" name="s3" id="select11" value="1" checked="">
+    <label for="select11">スポーツ</label>
+    <input type="radio" name="s3" id="select12" value="2">
+    <label for="select12">ショッピング</label>
+    <input type="radio" name="s3" id="select13" value="3">
+    <label for="select13">温泉</label>
+    <input type="radio" name="s3" id="select14" value="4">
+    <label for="select14">家でゴロゴロ</label>
+    <input type="radio" name="s3" id="select15" value="5">
+    <label for="select15">ん～わかんない</label>
+    </div>
+    
+    <div class="question style2">
+    <em>من هو معلمك المفضل؟ー</em><br>
+    <input type="radio" name="s4" id="select16" value="1" checked="">
+    <label for="select16">السيد عينو</label>
+    <input type="radio" name="s4" id="select17" value="2">
+    <label for="select17">كوباياشي، المدرب</label>
+    <input type="radio" name="s4" id="select18" value="3">
+    <label for="select18">المعلم تاكاهاما</label>
+    <input type="radio" name="s4" id="select19" value="4">
+    <label for="select19">كينوشيتا</label>
+    <input type="radio" name="s4" id="select20" value="5">
+    <label for="select20">لا أعرف</label>
+    </div>
+    
+    
+          <%= submit_tag '　👌　' %>
+
+<% end %>
+
+</div>
+

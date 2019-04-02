@@ -1,0 +1,50 @@
+<%= form_for(@stampimage) do |f| %>
+  <% if @stampimage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stampimage.errors.count, "error") %> prohibited this stampimage from being saved:</h2>
+
+      <ul>
+      <% @stampimage.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rate %>
+    <%= f.number_field :rate ,in: 1..6%>
+  </div>
+  
+  <!-- 追加箇所 開始 -->
+  <div class="field">
+    <% if @stampimage.image? %>
+      <div class="thumbnail">
+        <%= image_tag @stampimage.image.url %>
+      </div>
+    <% end %><br>
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+  <div class="field">
+    <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
+    <% if @stampimage.persisted? && @stampimage.image? %>
+      <label>
+        <%= f.check_box :remove_image %>
+        画像を削除
+      </label>
+    <% end %>
+  </div>
+  <!-- 追加箇所 終了 -->
+  
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

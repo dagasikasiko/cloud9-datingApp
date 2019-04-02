@@ -1,0 +1,49 @@
+<%= stylesheet_link_tag "/assets/gacha/gacha", media: "all" %>
+<%= stylesheet_link_tag "/assets/gacha/shake", :media => "all" %>
+
+<center><ui class="actions">
+	<a href="/frids" class="button alt special">マイフレンドへ</a>
+</ui></center>
+<!--<h1>プレミアム生贄ガチャ</h1>-->
+
+<% if @cnt == 6 %>
+  <section id="two" class="wrapper style2">
+    <div class="container">
+      <div class="row">
+        <div class="6u">
+          <section class="special slideRight">
+            <div id="object" class="bigEntrance shake-horizontal">
+              <h2>ざんねん！</h2>
+              <h5>はずれです...</h5>
+            </div>
+            <div id="object" class="expandUp">
+              <%= image_tag "/assets/gacha/hazureman.png", class: 'result-stamp shake-slow' %>
+            </div><br>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+<% else %>
+  <section id="two" class="wrapper style2">
+  	<div class="container">
+  		<div class="row">
+  			<div class="6u">
+  				<section class="special">
+  					  <div id="object" class="bigEntrance shake-horizontal"></div>
+              <div id="object" class="bigEntrance shake-horizontal">
+                <%= link_to gacha_image_for(@frienduser), @frienduser %>
+              </div>
+              <div id="object" class="slideUp shake-crazy">
+                <h1><%= link_to @frienduser.name, @frienduser %></h1><h2>ちゃん</h2>
+                <h2>GET!友達になったよ！</h2>
+              </div>
+          </div>
+          <br>
+          </section>
+  		</div>
+  	</div>
+  </section>
+<% end %>
+
+<!--<div class="shake-crazy"><img src="/uploads/stampimage/image/30/kawaii.gif" width="500" height="500"></div>-->

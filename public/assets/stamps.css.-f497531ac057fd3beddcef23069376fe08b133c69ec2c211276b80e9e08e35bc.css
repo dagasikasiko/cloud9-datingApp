@@ -1,0 +1,15 @@
+/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/stamps.css..scss */
+.middle-stamp {
+  width: 30%;
+}
+
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/stamps.css..scss */
+.large-stamp {
+  width: 60%;
+}
+
+/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/stamps.css..scss */
+.result-stamp {
+  width: 800px;
+  height: 800px;
+}

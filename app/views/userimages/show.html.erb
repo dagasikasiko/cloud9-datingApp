@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @userimage.user_id %>
+</p>
+
+<!-- 追加箇所 開始 -->
+<p>
+  <strong>Image:</strong>
+  <% if @userimage.image? %>
+    <div class="thumbnail">
+      <%= image_tag @userimage.image.url %>
+    </div>
+  <% end %>
+</p>
+<!-- 追加箇所 終了 -->
+
+
+<%= link_to 'Edit', edit_userimage_path(@userimage) %> |
+<%= link_to 'Back', userimages_path %>

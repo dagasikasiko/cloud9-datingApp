@@ -1,0 +1,21 @@
+/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/images.css.scss */
+.middle-img {
+  width: 30%;
+}
+
+/* line 6, /home/ubuntu/workspace/app/assets/stylesheets/images.css.scss */
+.large-img {
+  width: 60%;
+}
+
+/* line 11, /home/ubuntu/workspace/app/assets/stylesheets/images.css.scss */
+.middle-stamp {
+  width: 100px;
+  height: 100px;
+}
+
+/* line 16, /home/ubuntu/workspace/app/assets/stylesheets/images.css.scss */
+.large-stamp {
+  width: 500px;
+  height: 500px;
+}

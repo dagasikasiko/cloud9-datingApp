@@ -1,26 +1,63 @@
-<h2>Log in</h2>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+    <title>Login</title>
+    
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+
+
+<Div Align="center"><h1>一般会員ログイン</h1></Div>
+
+
+  <div id="login">
+    
+
+<%= form_for(resource, as: resource_name, url: new_session_path(resource_name)) do |f| %>
+  
+  <div class="field fontawesome-user">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true ,:maxlength=>"40"%>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <br>
+
+  <div class="field fontawesome-lock">
+    <%= f.label :password %>
+    <%= f.password_field :password, autocomplete: "off" ,:maxlength=>"20"%>
   </div>
 
   <% if devise_mapping.rememberable? -%>
     <div class="field">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
-    </div>
+    <!--</div>-->
+    
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
+    <%= f.submit "ログイン" %>
+    
 <% end %>
 
-<%= render "users/shared/links" %>
+ <Div Align="right"><%= render "users/shared/links" %></Div>   
+
+<!--<div id="login">-->
+<!--      <form name='form-login'>-->
+<!--          <input type="text" id="user" placeholder="Username">-->
+       
+<!--          <input type="password" id"pass" placeholder="Password">-->
+        
+<!--        <input type="submit" value="Login">-->
+
+<!--      </form>-->
+
+
+<!--<div class="login">-->
+<!--	<h1>Login</h1>-->
+<!--    <form method="post">-->
+<!--    	<input type="text" name="u" placeholder="Username" required="required" />-->
+<!--        <input type="password" name="p" placeholder="Password" required="required" />-->
+<!--        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>-->
+<!--    </form>-->
+<!--</div>-->

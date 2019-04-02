@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Stampimages</h1>
+<%= link_to 'スタンプ新規作成', new_stampimage_path %>
+<table>
+  <thead>
+    <tr>
+      <th>スタンプ名</th>
+      <th>レア度</th>
+      <th>スタンプ</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stampimages.each do |stampimage| %>
+      <tr>
+        <td><%= stampimage.name %></td>
+        <td><%= stampimage.rate %></td>
+        <td><%= image_tag stampimage.image.url, class: 'middle-img' %></td>
+        <td><%= link_to '見る', stampimage %></td>
+        <td><%= link_to '編集', edit_stampimage_path(stampimage) %></td>
+        <td><%= link_to '削除', stampimage, method: :delete, data: { confirm: '削除します。よろしいですか？' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

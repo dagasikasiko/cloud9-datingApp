@@ -1,0 +1,24 @@
+<tr>
+  <td>
+    <%= note.id %>
+  </td>
+  <td>
+      <!--%= admin_image_for(user) %>-->
+    <%= admin_image_for(note.user) %>
+   </td>
+   <td>
+     <%= link_to note.title, "/admin/notes/#{note.id}"  %>
+   </td>
+   <td>
+     <%= note.content %>
+   </td>
+   <td>
+     <p><%= note.created_at %></p>
+   </td>
+   <td>
+     <p><%= note.updated_at %></p>
+   </td>
+    <td>
+    <%= link_to '削除', [:admin,note], method: :delete, data: { confirm: '削除します。よろしいですか？' } %>
+    </td>
+</tr>

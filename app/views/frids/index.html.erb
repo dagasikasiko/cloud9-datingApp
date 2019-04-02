@@ -1,0 +1,68 @@
+<h1>友達一覧</h1>
+
+<div class="frid_list">
+  
+  <div>
+   <%= form_tag(frids_path, method: "get") do %>
+   <%= text_field_tag :name, params[:name] %>
+   <%= submit_tag 'ユーザ名検索' %>
+   <% end %>
+ </div>
+<!--<div style="width:1435px;height:450px;overflow:auto;">-->
+  <table>
+    <theader>
+      <tr>
+        <th>ユーザID</th><th>ユーザ名</th><th>メール</th><th>画像</th><th>友達</th><th>・・・</th>
+      </tr>
+    </theader>
+    <% friendflg = 0 %>
+    <% cnt = 0 %>
+    <tbody>
+      
+      <% @user.each do |user| %>
+        <% @frid.each do |id|
+          if user.id == id.friendid then
+            friendflg = 1
+            cnt = cnt + 1
+            break
+          end 
+        end %>
+        <% if friendflg == 1 then %>
+        <tr>
+          <td>
+            <%= user.id %>
+          </td>
+          <td>
+            <%= link_to user.name, user %>
+          </td>
+          <td>
+            <%= user.email %>
+          </td>
+          <td>
+            <%= image_for(user) %>
+          </td>
+          <td>
+             <%= link_to "チャット", chat_index_path(user_id_to:user.id)%>
+          </td>
+          <td>
+             <%= link_to "削除", frid_path(user), :method => :delete, data: { confirm: "削除しますか？" } %>
+           </td>
+          <% end %>
+          <% friendflg = 0 %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <!--</div>-->
+  
+  <% if @superflg == 1 then %>
+    <h3>友達がいません</h3>
+  <% end %>
+      
+  <% if params[:name].present? %>
+    <% if cnt <= 0 then %>
+      <h3>該当する友達がいません</h3>
+    <% end %>
+    <%= link_to "友達一覧", "/frids"  %>
+  <% end %>
+</div>

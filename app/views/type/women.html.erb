@@ -1,0 +1,80 @@
+<%= stylesheet_link_tag "/assets/gacha/gacha", media: "all" %>
+
+<%= stylesheet_link_tag "/assets/gacha/shake", :media => "all" %>
+
+
+<center><h1>質問に答えてね!<br>
+<h3>
+    
+
+<%= form_tag({ :controller => 'type', :action => 'result' }, { :method => :post}) do %>
+
+<div class="foo">
+
+    <div class="question style3">
+    <em>好きな飲み物は？</em><br>
+
+    <input type="radio" name="s1" id="select1" value="1" checked="">
+    <label for="select1">ジュース</label>
+    <input type="radio" name="s1" id="select2" value="2">
+    <label for="select2">コーヒー</label>
+    <input type="radio" name="s1" id="select3" value="3">
+    <label for="select3">紅茶</label>
+    <input type="radio" name="s1" id="select4" value="4">
+    <label for="select4">酒</label>
+    <input type="radio" name="s1" id="select5" value="5">
+    <label for="select5">ひ・み・つ</label>
+    </div>
+    
+    <div class="question style4">
+    <em>かれぴっぴとデート！どこいく？</em><br>
+    <input type="radio" name="s2" id="select6" value="2" checked="">
+    <label for="select6">ショッピング</label>
+    <input type="radio" name="s2" id="select7" value="1">
+    <label for="select7">音楽フェス</label>
+    <input type="radio" name="s2" id="select8" value="3">
+    <label for="select8">映画を見る</label>
+    <input type="radio" name="s2" id="select9" value="4">
+    <label for="select9">水族館</label>
+    <input type="radio" name="s2" id="select10" value="5">
+    <label for="select10">ひ・み・つ</label>
+    </div>
+    
+    <div class="question style3">
+    <em>ジャージでどこまでいける？</em><br>
+    <input type="radio" name="s3" id="select11" value="1" checked="">
+    <label for="select11">家の中</label>
+    <input type="radio" name="s3" id="select12" value="2">
+    <label for="select12">コンビニ</label>
+    <input type="radio" name="s3" id="select13" value="3">
+    <label for="select13">スーパー</label>
+    <input type="radio" name="s3" id="select14" value="4">
+    <label for="select14">街中</label>
+    <input type="radio" name="s3" id="select15" value="5">
+    <label for="select15">ひ・み・つ</label>
+    </div>
+    
+    <div class="question style4">
+    <em>自分を動物にたとえると？</em><br>
+    <input type="radio" name="s4" id="select16" value="1" checked="">
+    <label for="select16">ワンワン</label>
+    <input type="radio" name="s4" id="select17" value="2">
+    <label for="select17">にゃ～</label>
+    <input type="radio" name="s4" id="select18" value="3">
+    <label for="select18">チューチュー</label>
+    <input type="radio" name="s4" id="select19" value="4">
+    <label for="select19">モーモー</label>
+    <input type="radio" name="s4" id="select20" value="5">
+    <label for="select20">テッペンカケタカ</label>
+    </div>
+
+
+    <!--<input type="submit" value="👌">-->
+
+      <%= submit_tag '　👌　' %>
+<% end %>
+
+
+</div>
+
+

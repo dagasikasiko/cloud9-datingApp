@@ -1,0 +1,7 @@
+<h1>Editing User</h1>
+
+<%= render 'form', user: @user %>
+
+<%= link_to 'Show', [:admin,@user] %> |
+<%= link_to 'Back', admin_users_path %> |
+<%= link_to 'Delete', [:admin, @user], controller: :User, method: :delete, data: { confirm: '削除します。よろしいですか？' } %>

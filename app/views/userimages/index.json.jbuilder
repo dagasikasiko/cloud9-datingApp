@@ -1,0 +1,1 @@
+json.array! @userimages, partial: 'userimages/userimage', as: :userimage

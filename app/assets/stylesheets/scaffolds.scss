@@ -1,10 +1,10 @@
 body {
   background-color: #fff;
-  color: #333;
+  color: #fff;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
-  //margin: 33px;
+  margin: 5px;
 }
 
 p, ol, ul, td {
@@ -20,18 +20,20 @@ pre {
   font-size: 11px;
 }
 
-a {
-  color: #000;
+// a {
+//   color: #fff;
 
-  &:visited {
-    color: #666;
-  }
+//   &:visited {
+//     color: #fff;
+//   }
 
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
-}
+//   &:hover {
+//     color: #fff;
+//     background-color: #000;
+//     text-decoration: none;
+    
+//   }
+// }
 
 th {
   padding-bottom: 5px;
@@ -50,22 +52,23 @@ div {
 }
 
 #notice {
-  color: green;
+  color: #220000;
 }
 
 .field_with_errors {
+  width: 100%;
   padding: 2px;
-  background-color: red;
+  background-color: none;
   display: table;
 }
 
 #error_explanation {
-  width: 450px;
-  border: 2px solid red;
+  width: 100%;
+  border: 2px solid #c0c0c0;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
-  background-color: #f0f0f0;
+  background-color: none;
 
   h2 {
     text-align: left;
@@ -74,7 +77,7 @@ div {
     font-size: 12px;
     margin: -7px;
     margin-bottom: 0;
-    background-color: #c00;
+    background-color: #333;
     color: #fff;
   }
 

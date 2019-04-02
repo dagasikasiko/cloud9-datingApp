@@ -1,0 +1,65 @@
+    <% cache message do %>
+    <!--メッセージがあるよ--!>
+    <!--<%= message.content %>--!>
+
+
+<% if $zibun.id != message.userid%>
+
+
+<li class="message">
+    <a href="#" class = "message-img">
+        <img class="profile_img" src="/uploads/user/image/<%= message.userid %>/profile.jpg" onerror="this.src='/assets/icon.png';" alt="1 icon">
+    </a>
+    <div class = "message-content">
+        <h6 class = "message-heading"><%= distance_of_time_in_words_to_now(message.created_at) %><em> ago</em></h6>
+        
+        <% if message.content.include?("http")%>
+            <% message.content ="やめてぇ" %>
+        <% end %>
+        
+        
+        <% if message.content.include?("/uploads") %>
+        <img class="middle-img left_balloon" src="<%= message.content %>" onerror="this.src='/assets/chat/non-style.PNG';">
+        <% else %>
+        <p class="left_balloon"><%= message.content %></p>
+        <% end %>
+    </div>
+</li>
+
+
+
+
+<% else %>
+
+
+
+<Div Align="right">
+<li class="message">
+    <a href="#" class = "message-img2">
+        <img class="profile_img" src="/uploads/user/image/<%= message.userid %>/profile.jpg" onerror="this.src='/assets/icon.png';" alt="1 icon">
+    </a>
+    <div class = "message-content">
+        <h6 class = "message-heading"><%= distance_of_time_in_words_to_now(message.created_at) %><em> ago</em></h6>
+        
+        
+        <% if message.content.include?("http") %>
+            <% message.content ="リンクはやめてぇ" %>
+        <% end %>
+
+        
+        
+        <% if message.content.include?("/uploads") %>
+        <img class="middle-img right_balloon" src="<%= message.content %>" onerror="this.src='/assets/chat/non-style.PNG';">
+        <% else %>
+        <p class="right_balloon"><%= message.content %></p>
+        <% end %>
+    </div>
+    </div>
+</li>
+
+
+<% end %>
+
+<% end %>
+
+

@@ -1,0 +1,29 @@
+<h1>ユーザ</h1>
+
+<div class="frid_list">
+  <table>
+    <theader>
+      <tr>
+        <th>ユーザID</th><th>ユーザ名</th><th>メール</th><th>画像</th>
+      </tr>
+    </theader>
+    <tbody>
+        <tr>
+          <td>
+            <%= @user.id %>
+          </td>
+          <td>
+            <%= @user.name %>
+          </td>
+          <td>
+            <%= @user.email %>
+          </td>
+          <td>
+            <%= @user.image %>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <%= link_to '友達一覧', frids_path %>
+</div>

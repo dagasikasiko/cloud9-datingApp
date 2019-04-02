@@ -1,0 +1,121 @@
+<!doctype html>
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>ゲーム対戦</title>
+		<%= javascript_include_tag "/assets/game/classList.js" %>
+		<%= javascript_include_tag "/assets/game/xy.js" %>
+		<%= javascript_include_tag "/assets/game/game.js" %>
+		<%= javascript_include_tag "/assets/game/engine.js" %>
+		<%= javascript_include_tag "/assets/game/engine.network.js" %>
+		<%= javascript_include_tag "/assets/game/pit.js" %>
+		<%= javascript_include_tag "/assets/game/piece.js" %>
+		<%= javascript_include_tag "/assets/game/cell.js" %>
+		<%= javascript_include_tag "/assets/game/ai.js" %>
+		<%= javascript_include_tag "/assets/game/player.js" %>
+		<%= javascript_include_tag "/assets/game/attacker.random.js" %>
+		<%= javascript_include_tag "/assets/game/attacker.human.js" %>
+		<%= javascript_include_tag "/assets/game/attacker.ai.js" %>
+		<%= javascript_include_tag "/assets/game/defender.human.js" %>
+		<%= javascript_include_tag "/assets/game/defender.ai.js" %>
+		<%= javascript_include_tag "/assets/game/gallery.js" %>
+		<%= javascript_include_tag "/assets/game/app.js" %>
+		
+		
+		<!--<link rel="stylesheet" href="/game/style.css" type="text/css" />-->
+        <%= stylesheet_link_tag "/assets/game/style", media: "all" %>
+        <%= stylesheet_link_tag "/assets/game/setup", media: "all" %>
+        <%= stylesheet_link_tag "/assets/game/gallery", media: "all" %>
+        
+       	
+
+        
+	</head>
+	<body>
+
+		<% if $js.even? === true %>
+			<% $js += 1 %>
+			<% p $js %>
+			<meta http-equiv="refresh" content="0">
+			
+		<% end %>
+		 
+		<div id="left"></div>
+		<div id="right"></div>
+		<div id="info">
+			<p>Score: <span id="score"></span></p>
+			<p>Status: <span id="status"></span></p>
+		</div>
+		<div id="setup">
+			<br>
+			<br>
+			<br>
+			<br>
+			
+			
+			<h1>決闘テトリス！</h1>
+			<!--<p>新感覚テトリス対戦ゲーム！</p>-->
+			<!--<p>君はブロックを降らせる <em>侵略者：Attacker</em>となるか, それともブロックを操る <em>防衛者：Defender</em>となるか。<br>-->
+			<!--新しいテトリスがここに始まる。 -->
+			<!--<br>-->
+			<!--選べる対戦モードは１２通り！！-->
+			<!--<br>-->
+			<!--<strong>①</strong> 1PCで隣の人と対戦!-->
+			<!--<strong>②</strong> 一人で練習！-->
+			<!--<strong>③</strong> 人工知能と対戦！-->
+			<!--<strong>④</strong> ネット対戦！!-->
+			
+			
+			
+			
+			<div id="attacker">
+				<h4></h4><select>
+					<!--<option value="Human">あなた</option>-->
+					<option value="AI">攻撃側: CPU</option>
+					<option value="Random">攻撃側: ランダム</option>
+					<!--<option value="Network">Network</option>-->
+					<!--<input type="hidden" value="Random"/>-->
+				</select>
+			</div>
+			<br><br>
+			<div id="defender">
+				<h4></h4><select>
+					<option value="Human">防御側: あなた</option>
+					<option value="AI">防御側:CPU</option>
+					<!--<option value="Network">Network</option>-->
+					<!--<input type="hidden" value="Human"/>-->
+				</select>
+			</div>
+			<br>
+			<br>
+			<p>ゲームモード： <strong id="description"></strong></p>
+			<br>
+					<button id="play">Start!</button>
+			<p id="network"><button id="connect">更新して</button><input type="hidden" id="server" size="8" value="ondras"/><input type="hidden" id="slug" size="5" value="gondo" /><br>
+			<h2>※操作方法※</h2>
+				<h2>↑：ブロックの回転<br>←,→：ブロック移動<br>↓:高速落下<hr>
+			
+			<!--<select>-->
+			<!--	% User.find_each do |user| %>-->
+			<!--		<option value=% user.id %>>%= user.name %></option>-->
+   <!--     		% end %>-->
+			<!--</select><br>-->
+			<!--※ネット対戦の設定の仕方！<br>片方がAttackerをHumanとDefenderをNetworkにし、対戦相手がAttackerをNetworkにし、DefenderをHumanにする。<br>URLはお互いに同じURLにしてね</p>-->
+			
+
+			
+		</div>
+		<script>new Game.App();</script>
+		<script type='text/javascript' src='https://cdn.firebase.com/v0/firebase.js'></script>
+	</body>
+</html>
+<%= form_tag({:controller => 'games', :action => 'result'}, {:method => :post,:id => "gamepoint"}) do %>
+<input type="hidden" name="point" id="point" />
+<input type="hidden" name="jotai" id="jotai" />
+<%end%>
+
+
