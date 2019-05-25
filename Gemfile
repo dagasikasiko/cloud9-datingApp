@@ -66,7 +66,7 @@ gem 'faye-websocket', '0.10.0'
 
 gem "twitter"
 gem "therubyracer"
-gem 'less-rails'
+gem 'less-rails', git: 'https://github.com/MustafaZain/less-rails'
 gem "twitter-bootstrap-rails"
 
 gem "devise"
